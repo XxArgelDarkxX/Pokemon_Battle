@@ -23,5 +23,6 @@
 hs_err_pid*
 replay_pid*
 
-# Visual Studio Code
+# Text Editor Temp Files
 .vscode/
+.idea/
