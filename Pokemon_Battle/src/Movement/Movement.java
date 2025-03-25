@@ -1,19 +1,21 @@
 package Movement;
 
 public class Movement {
-    private enum Type {
+    public enum Type {
         FISICO, ESPECIAL
     };
     private String name;
     private Type type;
     private byte power;
 
+    public Movement(){}
 
     public Movement(String name, String type, byte power) {
         this.name = name;
         this.type = Type.valueOf(type.toUpperCase());
         this.power = power;
     }
+
     public String getName() {
         return name;
     }
