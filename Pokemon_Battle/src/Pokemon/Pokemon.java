@@ -12,9 +12,9 @@ public class Pokemon {
     private ArrayList<Movement> moves;
 
     // Constructor de la clase Pokemon.
-    public Pokemon(String name, Pokemon.Type type, short hp, ArrayList<Movement> moves) {
+    public Pokemon(String name, String type, short hp, ArrayList<Movement> moves) {
         this.name = name;
-        this.type = type;
+        this.type = Type.valueOf(type);
         this.hp = hp;
         this.moves = moves;
     }

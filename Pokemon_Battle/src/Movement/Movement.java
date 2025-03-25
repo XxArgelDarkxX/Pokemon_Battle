@@ -6,12 +6,12 @@ public class Movement {
     };
     private String name;
     private Type type;
-    private int power;
+    private byte power;
 
 
-    public Movement(String name, Type type, int power) {
+    public Movement(String name, String type, byte power) {
         this.name = name;
-        this.type = type;
+        this.type = Type.valueOf(type.toUpperCase());
         this.power = power;
     }
     public String getName() {
@@ -26,10 +26,10 @@ public class Movement {
     public void setType(Type type) {
         this.type = type;
     }
-    public int getPower() {
+    public byte getPower() {
         return power;
     }
-    public void setPower(int power) {
+    public void setPower(byte power) {
         this.power = power;
     }
 
