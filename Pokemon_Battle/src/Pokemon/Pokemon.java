@@ -1,23 +1,26 @@
 package Pokemon;
-import java.util.ArrayList;
-
 import Movement.Movement;
+import java.util.ArrayList;
 public class Pokemon {
     private String name;
-    private enum Type {
+    public enum Type {
         FUEGO, AGUA, PLANTA, TIERRA,
     }
     private Type type;
     private short hp;
     private ArrayList<Movement> moves;
 
+
+    public Pokemon(){}
+
     // Constructor de la clase Pokemon.
-    public Pokemon(String name, Pokemon.Type type, short hp, ArrayList<Movement> moves) {
+    public Pokemon(String name, Pokemon.Type type ,short hp, ArrayList<Movement> moves) {
         this.name = name;
         this.type = type;
         this.hp = hp;
         this.moves = moves;
     }
+    
 
     public String getName() {
         return name;
@@ -74,5 +77,7 @@ public class Pokemon {
         return 1.0;
     }
     }
+
+    
 }
 
