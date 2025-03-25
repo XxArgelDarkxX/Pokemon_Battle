@@ -1,6 +1,7 @@
 package Pokemon;
 import java.util.ArrayList;
 
+import Movement.Movement;
 public class Pokemon {
     private String name;
     private enum Type {
@@ -8,10 +9,10 @@ public class Pokemon {
     }
     private Type type;
     private short hp;
-    private ArrayList moves;
+    private ArrayList<Movement> moves;
 
     // Constructor de la clase Pokemon.
-    public Pokemon(String name, Pokemon.Type type, short hp, ArrayList moves) {
+    public Pokemon(String name, Pokemon.Type type, short hp, ArrayList<Movement> moves) {
         this.name = name;
         this.type = type;
         this.hp = hp;
@@ -42,17 +43,17 @@ public class Pokemon {
         this.hp = hp;
     }
     
-    public ArrayList getMoves() {
+    public ArrayList<Movement> getMoves() {
         return moves;
     }
     
-    public void setMoves(ArrayList moves) {
+    public void setMoves(ArrayList<Movement> moves) {
         this.moves = moves;
     }
     
     // Este método permite a un Pokemon atacar a otro Pokemon.
-    public void attack(Pokemon target, int moveIndex) {
-        Move move = (Move) moves.get(moveIndex);
+    public void movement(Pokemon target, int moveIndex) {
+        Movement move = (Movement) moves.get(moveIndex);
         double effectiveness = moveEffectiveness(this.type, target.getType());
         target.setHp((short) (target.getHp() - (move.getPower() * effectiveness))); // Se resta la vida del Pokemon objetivo.
         System.out.println(this.name + " ha usado" + move.getName() + "!");
