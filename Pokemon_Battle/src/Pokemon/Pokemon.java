@@ -1,7 +1,8 @@
 package Pokemon;
 import Movement.Movement;
 import java.util.ArrayList;
-public class Pokemon {
+public class
+Pokemon {
     private String name;
     public enum Type {
         FUEGO, AGUA, PLANTA, TIERRA,

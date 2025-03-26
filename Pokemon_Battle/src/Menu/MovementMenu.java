@@ -56,7 +56,7 @@ public class MovementMenu {
                     flag = false;
                 }
             } while (flag);
-            scanner.close();
+            
         }
 
     
