@@ -65,21 +65,10 @@ public class PokemonMenu {
             System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
             MovementMenu.movementkMenu();
 
-
-
-
-
-
-
-
-
-
             //pokemons[i].setMoves(movement.setMove());
-
-
-
-
         }
+
+
 
 
 
