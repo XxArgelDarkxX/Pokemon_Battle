@@ -1,14 +1,22 @@
 package Menu;
 
 import Entrenador.Trainer;
+import Pokemon.Pokemon;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class TrainerMenu {
+    Scanner scanner;
+    
 
-    public static void trainerMenu() throws Exception {
+    public TrainerMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public static void trainerMenu(Scanner scanner, ArrayList<Pokemon> pokemons) throws Exception {
         
-        Scanner scanner = new Scanner(System.in);
         int numTrainers = 2;
         Trainer[] trainers = new Trainer[numTrainers];
 
@@ -32,11 +40,15 @@ public class TrainerMenu {
 
                 switch (option) {
                     case 1:
+                        trainers[i].setRandomPokemonTeam(pokemons);
                         System.out.println(trainers[i].getName() + ", TUS POKEMONES SON: ");
+                        for (int j = 0; j < 3; j++) {
+                            System.out.println(trainers[i].getPokemonTeam().get(j).getName());
+                        }
                         break;
                     case 2:
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
-                        PokemonMenu.pokemonMenu();
+                        PokemonMenu.pokemonMenu(scanner);
 
                         break;
                     default:
@@ -45,8 +57,5 @@ public class TrainerMenu {
                 }
             } while (option != 1 && option != 2);
         }
-
-        scanner.close();
-
     }
 }
