@@ -38,6 +38,7 @@ public class Trainer {
         for (int i = 0; i < 3; i++) {
             int randomIndex = (int) (Math.random() * pokemons.size());
             this.pokemonTeam.add(pokemons.get(randomIndex));
+            pokemons.remove(randomIndex);
         }
     }
 }

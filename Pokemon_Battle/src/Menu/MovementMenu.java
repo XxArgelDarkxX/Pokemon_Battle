@@ -6,21 +6,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MovementMenu {
-
-
-    Random random = new Random();
+    Scanner scanner;
     Movement movement = new Movement();
+    Random random = new Random();
+    
+    public MovementMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
-    public static void movementkMenu() throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
+    public static void movementMenu(Scanner scanner) throws Exception {
         int numMovements = 4;
         Movement[] movements = new Movement[numMovements];
         
 
         for(int i=0; i<numMovements; i++){
             movements[i] = new Movement();
-            System.out.println("\n" + "INGRESA LOS MOVIMIENTOS DE TU POKEMON" + "\n");
             System.out.print("INGRESA EL NOMBRE DE TU MOVIMIENTO " + (i + 1) + "\n");
             String nameMovement = scanner.nextLine();
             scanner.nextLine();
@@ -56,10 +57,7 @@ public class MovementMenu {
                     flag = false;
                 }
             } while (flag);
-            scanner.close();
         }
-
-    
     }
 
     

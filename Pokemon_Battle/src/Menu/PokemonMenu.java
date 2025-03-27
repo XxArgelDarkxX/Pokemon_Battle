@@ -4,13 +4,17 @@ import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
+    Scanner scanner;
 
-    public static void pokemonMenu() throws Exception {
+    public PokemonMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
-        Scanner scanner = new Scanner(System.in);
+    public static void pokemonMenu(Scanner scanner) throws Exception {
+
         //definir la cantidad
         int numPokemons = 3;
-
+        
         boolean flag;
         Pokemon[] pokemons = new Pokemon[numPokemons];
         int option ;
@@ -63,27 +67,7 @@ public class PokemonMenu {
 
             //ingresamos los movimientos
             System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
-            MovementMenu.movementkMenu();
-
-
-
-
-
-
-
-
-
-
-            //pokemons[i].setMoves(movement.setMove());
-
-
-
-
+            MovementMenu.movementMenu(scanner);
         }
-
-
-
-
-        scanner.close();
     }
 }
