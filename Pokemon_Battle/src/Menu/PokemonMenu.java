@@ -4,13 +4,17 @@ import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
+    Scanner scanner;
 
-    public static void pokemonMenu() throws Exception {
+    public PokemonMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
-        Scanner scanner = new Scanner(System.in);
+    public static void pokemonMenu(Scanner scanner) throws Exception {
+
         //definir la cantidad
         int numPokemons = 3;
-
+        
         boolean flag;
         Pokemon[] pokemons = new Pokemon[numPokemons];
         int option ;
@@ -24,7 +28,7 @@ public class PokemonMenu {
             //Ingresar el tipo
             System.out.println("\nINGRESE EL ELEMENTO DEL POKEMON ");
             System.out.println("1. FUEGO\n 2. AGUA\n 3. PLANTA\n 4. TIERRA\n"); //Mostramos las opciones
-
+            
             //legimos el tipo de pokemon
             do{
                 flag = false;
@@ -41,7 +45,7 @@ public class PokemonMenu {
 
             //ingresamos el hp
             do {
-
+                
                 try{
                     short hp = 0;
                     System.out.println("\nINGRESA LA VIDA DEL POKEMON\n");
@@ -63,23 +67,7 @@ public class PokemonMenu {
 
             //ingresamos los movimientos
             System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
-            Menu.MovementMenu.movementkMenu();
-
-            //pokemons[i].setMoves(movement.setMove());
+            MovementMenu.movementMenu(scanner);
         }
-
-        //saber si todos se guarda correctamente
-        for (int i = 0; i < numPokemons; i++) {
-            pokemons[i].setName(pokemons[i].getName());
-            pokemons[i].setHp(pokemons[i].getHp());
-            pokemons[i].setType(pokemons[i].getType());
-        }
-
-
-
-
-
-
-        scanner.close();
     }
 }
