@@ -1,15 +1,10 @@
 package Menu;
 
+import Data.Data;
 import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
-    Scanner scanner;
-
-    public PokemonMenu(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public static void pokemonMenu(Scanner scanner) throws Exception {
 
         //definir la cantidad
@@ -47,7 +42,7 @@ public class PokemonMenu {
             do {
                 
                 try{
-                    short hp = 0;
+                    short hp;
                     System.out.println("\nINGRESA LA VIDA DEL POKEMON\n");
                     System.out.print("POKEMON " + (i + 1) + ":\t");
                     hp = scanner.nextShort();
@@ -64,10 +59,23 @@ public class PokemonMenu {
 
                 }
             } while (flag);
+            System.out.println("""
 
-            //ingresamos los movimientos
-            System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
-            MovementMenu.movementMenu(scanner);
+                               Selecciona los movimientos de tu Pokemon
+                               1. MOVIMIENTO ALEATORIO
+                               2. CREAR MOVIMIENTOS
+                               """);
+            do{
+                flag = false;
+                option = scanner.nextInt();
+                switch (option) {
+                    case 1 -> pokemons[i].setRandomMoves(Data.getMoves(pokemons[i].getType()));
+                    case 2 -> MovementMenu.movementMenu(scanner);
+                    default -> {System.out.println("Opcion no valida");
+                        flag = true;}
+                }
+            }while(flag);
+            
         }
     }
 }

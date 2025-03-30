@@ -1,14 +1,13 @@
 package Entrenador;
 
-import java.util.ArrayList;
-
 import Pokemon.Pokemon;
+import java.util.ArrayList;
 
 public class Trainer {
     
     private String name;
 
-    private ArrayList<Pokemon> pokemonTeam = new ArrayList<Pokemon>();
+    private ArrayList<Pokemon> pokemonTeam = new ArrayList<>();
 
     public Trainer() {
     }

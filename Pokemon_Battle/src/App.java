@@ -1,5 +1,5 @@
-import Menu.TrainerMenu;
 import Data.Data;
+import Menu.TrainerMenu;
 import Pokemon.Pokemon;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,8 +9,8 @@ public class App {
         Data.initializeData();
         ArrayList<Pokemon> pokemonList = Data.getPokemons();
 
-        Scanner scanner = new Scanner(System.in);
-        TrainerMenu.trainerMenu(scanner, pokemonList);
-        scanner.close();
+        try (Scanner scanner = new Scanner(System.in)) {
+            TrainerMenu.trainerMenu(scanner, pokemonList);
+        }
     }
 }

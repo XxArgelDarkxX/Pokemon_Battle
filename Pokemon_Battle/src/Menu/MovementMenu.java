@@ -2,48 +2,38 @@ package Menu;
 
 import Movement.Movement;
 import Movement.Movement.Type;
-import java.util.Random;
 import java.util.Scanner;
 
 public class MovementMenu {
-    Scanner scanner;
-    Movement movement = new Movement();
-    Random random = new Random();
-    
-    public MovementMenu(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-
     public static void movementMenu(Scanner scanner) throws Exception {
         int numMovements = 4;
         Movement[] movements = new Movement[numMovements];
         
-
+        System.out.println("\nINGRESA TUS MOVIMIENTOS");
         for(int i=0; i<numMovements; i++){
             movements[i] = new Movement();
-            System.out.print("INGRESA EL NOMBRE DE TU MOVIMIENTO " + (i + 1) + "\n");
+            System.out.print("\nINGRESA EL NOMBRE DE TU MOVIMIENTO " + (i + 1) + "\n");
             String nameMovement = scanner.nextLine();
             scanner.nextLine();
             movements[i].setName(nameMovement);
 
-            System.out.println("\n" + "INGRESA EL TIPO DE TU MOVIMIENTO" + "\n");
+            System.out.println("""
+
+                               INGRESA EL TIPO DE TU MOVIMIENTO
+                               """);
             System.out.println("1. FISICO\n 2. ESPECIAL\n"); //Mostramos las opciones
             int option = scanner.nextInt();
             scanner.nextLine();
             switch (option) {
-                case 1:
-                    movements[i].setType(Type.FISICO);
-                    break;
-                case 2:
-                    movements[i].setType(Type.ESPECIAL);
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-                    break;
+                case 1 -> movements[i].setType(Type.FISICO);
+                case 2 -> movements[i].setType(Type.ESPECIAL);
+                default -> System.out.println("Opcion no valida");
             }
 
-            System.out.println("\n" + "INGRESA EL PODER DE TU MOVIMIENTO" + "\n");
+            System.out.println("""
+
+                               INGRESA EL PODER DE TU MOVIMIENTO
+                               """);
             System.out.print("MOVIMIENTO " + (i + 1) + ":\t");
             int value ;
             boolean flag;
