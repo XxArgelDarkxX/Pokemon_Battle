@@ -18,7 +18,7 @@ public class PokemonMenu {
         
         boolean flag;
         Pokemon[] pokemons = new Pokemon[numPokemons];
-        MovementMenu ataquepokemones = new MovementMenu(scanner);
+
         int option ;
         for(int i=0; i<numPokemons; i++){
             //Ingresar el nombre
@@ -69,7 +69,7 @@ public class PokemonMenu {
 
             //ingresamos los movimientos
             System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
-            MovementMenu.movementMenu(scanner);
+
         }
 
     }
