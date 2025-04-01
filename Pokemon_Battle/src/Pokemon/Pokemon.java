@@ -1,4 +1,5 @@
 package Pokemon;
+import Data.Data;
 import Movement.Movement;
 import java.util.ArrayList;
 public class
@@ -53,6 +54,20 @@ Pokemon {
     
     public void setMoves(ArrayList<Movement> moves) {
         this.moves = moves;
+    }
+
+    public void setRandomMoves(ArrayList<Movement> moves) {
+        this.moves = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            int randomIndex = (int) (Math.random() * moves.size());
+            this.moves.add(moves.get(randomIndex));
+            moves.remove(randomIndex); // Se elimina el movimiento para evitar duplicados.
+        }
+        System.out.println("Los movimientos de " + this.name + " son: ");
+        for (Movement move : this.moves) {
+            System.out.println(move.getName() + " - " + move.getPower() + " de poder.");
+        }
+        Data.initializeMoves(); // Se inicializan los movimientos para el siguiente Pokemon.
     }
     
     // Este método permite a un Pokemon atacar a otro Pokemon.

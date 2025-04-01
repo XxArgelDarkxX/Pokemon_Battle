@@ -9,14 +9,14 @@ import javax.swing.JOptionPane;
 
 public class TrainerMenu {
     Scanner scanner;
-    
+
 
     public TrainerMenu(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public static void trainerMenu(Scanner scanner, ArrayList<Pokemon> pokemons) throws Exception {
-        
+
         int numTrainers = 2;
         Trainer[] trainers = new Trainer[numTrainers];
 
@@ -56,6 +56,14 @@ public class TrainerMenu {
                         break;
                 }
             } while (option != 1 && option != 2);
+
+
         }
+
+
+        BattleMenu battle = new BattleMenu();
+        battle.battleBegins(scanner, trainers);
+
+
     }
 }
