@@ -8,8 +8,10 @@ public class Trainer {
     
     private String name;
 
+    //ArrayList donde se guardaron los pokemon creados 
     private ArrayList<Pokemon> pokemonTeam = new ArrayList<Pokemon>();
 
+    //Constructor de la clase Trainer
     public Trainer() {
     }
 
@@ -18,6 +20,7 @@ public class Trainer {
         this.pokemonTeam = pokemonTeam;
     }
 
+    //setters and getters de la clase Trainer
     public String getName() {
         return name;
     }
@@ -33,11 +36,14 @@ public class Trainer {
     public void setPokemonTeam(ArrayList<Pokemon> pokemonTeam) {
         this.pokemonTeam = pokemonTeam;
     }
+
+    //Creacion del equipo aleatorio
     public void setRandomPokemonTeam(ArrayList<Pokemon> pokemons) {
         // Se crea un equipo de 3 Pokemon aleatorios.
         for (int i = 0; i < 3; i++) {
             int randomIndex = (int) (Math.random() * pokemons.size());
             this.pokemonTeam.add(pokemons.get(randomIndex));
+            pokemons.remove(randomIndex);
         }
     }
 }

@@ -4,16 +4,22 @@ import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
+    Scanner scanner;
+    private Pokemon[] pokemons;
+    private int numPokemons = 3;
 
-    public static void pokemonMenu() throws Exception {
+    public PokemonMenu(Scanner scanner) {
+        this.scanner = scanner;
+        this.numPokemons = 3;
+        this.pokemons = new Pokemon[numPokemons];
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        //definir la cantidad
-        int numPokemons = 3;
+    //menu de pokemon 
+    public void pokemonMenu(Scanner scanner) throws Exception {
 
         boolean flag;
-        Pokemon[] pokemons = new Pokemon[numPokemons];
         int option ;
+
         for(int i=0; i<numPokemons; i++){
             //Ingresar el nombre
             pokemons[i] = new Pokemon();
@@ -23,9 +29,9 @@ public class PokemonMenu {
             pokemons[i].setName(namePokemon);
             //Ingresar el tipo
             System.out.println("\nINGRESE EL ELEMENTO DEL POKEMON ");
-            System.out.println("1. FUEGO\n 2. AGUA\n 3. PLANTA\n 4. TIERRA\n"); //Mostramos las opciones
+            System.out.println("1. FUEGO\n2. AGUA\n3. PLANTA\n4. TIERRA\n"); //Mostramos las opciones
             
-            //legimos el tipo de pokemon
+            //elegimos el tipo de pokemon
             do{
                 flag = false;
                     option = scanner.nextInt();
@@ -41,7 +47,6 @@ public class PokemonMenu {
 
             //ingresamos el hp
             do {
-                
                 try{
                     short hp = 0;
                     System.out.println("\nINGRESA LA VIDA DEL POKEMON\n");
@@ -54,7 +59,7 @@ public class PokemonMenu {
                         flag = false;
                     }
                 }catch(Exception e){
-                    System.out.println("engrese un valor menor o igaul a 350 de vida pendejo");
+                    System.out.println("Ingrese un valor menor o igual a 350 de vida pendejo");
                     flag = true;
                     scanner.next();
 
@@ -62,28 +67,16 @@ public class PokemonMenu {
             } while (flag);
 
             //ingresamos los movimientos
-            System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON\n");
-            MovementMenu.movementkMenu();
-
-
-
-
-
-
-
-
-
-
-            //pokemons[i].setMoves(movement.setMove());
-
-
-
-
+            System.out.println("\nINGRESA LOS MOVIMIENTOS DE TU POKEMON");
+            //llama al menu de movimientos para crearlos
+            MovementMenu.movementMenu(scanner);
         }
-
-
-
-
-        scanner.close();
+        
     }
+        //Mostrar los pokemons
+        public void mostrarPokemon(){
+            for (int i = 0; i < numPokemons; i++) {
+                System.out.println(pokemons[i].getName());
+            }
+        }
 }

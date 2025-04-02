@@ -21,7 +21,7 @@ public class Pokemon {
         this.moves = moves;
     }
     
-
+    //setters and getters de la clase pokemon 
     public String getName() {
         return name;
     }
@@ -80,4 +80,3 @@ public class Pokemon {
 
     
 }
-
