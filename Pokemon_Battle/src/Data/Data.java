@@ -13,7 +13,6 @@ public class Data {
 
     public static void initializeMoves() {
         // Movimientos tipo Fuego
-        // Movimientos tipo Fuego
         fireMoves.clear();
         fireMoves.add(new Movement("Lanzallamas", "FISICO", (byte)90));
         fireMoves.add(new Movement("Llamarada", "ESPECIAL", (byte)85));

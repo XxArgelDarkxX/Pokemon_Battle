@@ -32,6 +32,7 @@ public class Trainer {
     public void setPokemonTeam(ArrayList<Pokemon> pokemonTeam) {
         this.pokemonTeam = pokemonTeam;
     }
+    
     public void setRandomPokemonTeam(ArrayList<Pokemon> pokemons) {
         // Se crea un equipo de 3 Pokemon aleatorios.
         for (int i = 0; i < 3; i++) {

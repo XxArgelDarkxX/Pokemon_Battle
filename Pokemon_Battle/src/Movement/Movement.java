@@ -19,21 +19,24 @@ public class Movement {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public Type getType() {
         return type;
     }
+
     public void setType(Type type) {
         this.type = type;
     }
+
     public byte getPower() {
         return power;
     }
+    
     public void setPower(byte power) {
         this.power = power;
     }
-
-    
 }

@@ -2,19 +2,11 @@ package Menu;
 
 import Entrenador.Trainer;
 import Pokemon.Pokemon;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class TrainerMenu {
-    Scanner scanner;
-    
-
-    public TrainerMenu(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public static void trainerMenu(Scanner scanner, ArrayList<Pokemon> pokemons) throws Exception {
         
         int numTrainers = 2;
@@ -31,29 +23,30 @@ public class TrainerMenu {
         for(int i=0; i<numTrainers; i++){
             int option;
             do {
-                System.out.println("\nSELECCIONA TUS POKEMONES\n"+
-                "1. EQUIPO ALEATORIO\n"+
-                "2. CREAR TU PROPIO EQUIPO \n");
+                System.out.println("""
+                                   
+                                   SELECCIONA TUS POKEMONES
+                                   
+                                   1. EQUIPO ALEATORIO
+                                   2. CREAR TU PROPIO EQUIPO 
+                                   """);
                 System.out.print("ELIGE UNA OPCION " + trainers[i].getName() + ": " );
                 option = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (option) {
-                    case 1:
+                    case 1 -> {
                         trainers[i].setRandomPokemonTeam(pokemons);
                         System.out.println(trainers[i].getName() + ", TUS POKEMONES SON: ");
                         for (int j = 0; j < 3; j++) {
                             System.out.println(trainers[i].getPokemonTeam().get(j).getName());
                         }
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
                         PokemonMenu.pokemonMenu(scanner);
-
-                        break;
-                    default:
-                        JOptionPane.showMessageDialog(null, "Opcion no valida", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        break;
+                    }
+                    default -> JOptionPane.showMessageDialog(null, "Opcion no valida", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
             } while (option != 1 && option != 2);
         }

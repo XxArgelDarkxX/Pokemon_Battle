@@ -49,6 +49,4 @@ public class MovementMenu {
             } while (flag);
         }
     }
-
-    
 }

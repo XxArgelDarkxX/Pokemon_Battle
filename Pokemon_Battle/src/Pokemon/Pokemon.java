@@ -80,17 +80,17 @@ public class Pokemon {
     // Este método calcula la efectividad de un movimiento de un tipo de Pokemon sobre otro tipo de Pokemon.
     // El metodo es privado porque solo va a ser usado por la clase Pokemon.
     private double moveEffectiveness(Type attacker, Type defender) {
-    if (attacker == Type.FUEGO && defender == Type.PLANTA) {
-        return 1.3;
-    } else if (attacker == Type.AGUA && (defender == Type.FUEGO || defender == Type.TIERRA)) {
-        return 1.3;
-    } else if (attacker == Type.PLANTA && (defender == Type.AGUA || defender == Type.TIERRA)) {
-        return 1.3;
-    } else if (attacker == Type.TIERRA && defender == Type.FUEGO) {
-        return 1.3;
-    } else {
-        return 1.0;
-    }
+        if (attacker == Type.FUEGO && defender == Type.PLANTA) {
+            return 1.3;
+        } else if (attacker == Type.AGUA && (defender == Type.FUEGO || defender == Type.TIERRA)) {
+            return 1.3;
+        } else if (attacker == Type.PLANTA && (defender == Type.AGUA || defender == Type.TIERRA)) {
+            return 1.3;
+        } else if (attacker == Type.TIERRA && defender == Type.FUEGO) {
+            return 1.3;
+        } else {
+            return 1.0;
+        }
     }
 
     
