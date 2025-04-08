@@ -44,9 +44,6 @@ public class Trainer {
         }
     }
 
-
-
-
     public void choosePokemon(Pokemon[] pokemonsBattle, Trainer[] trainers, Scanner scanner) {
         if(pokemonsBattle[0] == null && pokemonsBattle[1] == null) {
             for(int i = 0; i < trainers.length; i++) {
@@ -59,45 +56,26 @@ public class Trainer {
                 int opcion;
                 do{
                     System.out.println("ingrese el numero del pokemon (1 -" + trainer.getPokemonTeam().size() + ")");
+                    opcion = scanner.nextInt();
                     while(!scanner.hasNextInt()){
                         System.out.println("Debde ser un numero");
                         scanner.nextLine();
                     }
-                    opcion = scanner.nextInt();
                 }while(opcion > trainer.pokemonTeam.size() || opcion < 1);
                 pokemonsBattle[i] = trainer.pokemonTeam.get(opcion -1 );
             }
-        }else if (pokemonsBattle[1] == null) {
-            int contador = 0;
-
-            System.out.println("elija otro pokemon: ");
-            for(Pokemon pokemon : pokemonTeam) {
-                contador += 1 ;
-                System.out.println(contador + " " +pokemon.getName() + " " + pokemon.getHp());
+        }else if (pokemonsBattle[1] == null || pokemonsBattle[0] == null) {
+            int index = (pokemonsBattle[0] == null) ? 0 : 1;
+            int contador = 0, option;
+            for (Pokemon pokemon : pokemonTeam) {
+                contador++;
+                System.out.println(contador + " " + pokemon.getName() + " " + pokemon.getHp());
             }
-            int opcion;
-            System.out.println("ingrese el numero del pokemon");
-            opcion = scanner.nextInt();
-            pokemonsBattle[1] = pokemonTeam.get(opcion -1 );
+            System.out.println("elija un pokemon");
+            option = scanner.nextInt();
+            pokemonsBattle[index] = pokemonTeam.get(option - 1);
 
-        }else {
-            System.out.println("elija otro pokemon: ");
-            int contador =0;
-
-            for(Pokemon pokemon : pokemonTeam) {
-                contador += 1 ;
-                System.out.println(contador + " " +pokemon.getName() + " " + pokemon.getHp());
-            }
-            int opcion;
-            System.out.println("ingrese el numero del pokemon");
-            opcion = scanner.nextInt();
-            pokemonsBattle[0] = pokemonTeam.get(opcion -1 );
 
         }
-
     }
-
-
-
-
 }

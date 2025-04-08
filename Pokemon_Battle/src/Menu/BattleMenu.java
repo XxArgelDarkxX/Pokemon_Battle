@@ -17,12 +17,13 @@ public class BattleMenu {
 
     public void battleBegins(Scanner sc, Trainer[] trainers) {
 
+        //esta preguntado
         for(int i = 0; i < trainers.length; i++) {
             trainers[i].choosePokemon(pokemonsBattle, trainers, sc);
         }
         System.out.println("\n\n______VAMOS A COMENZAR LA BATALLA______\n");
-        Random random = new Random();
-        int comenzar = random.nextInt(0, 1);
+
+        int comenzar = (pokemonsBattle[1].getHp() > pokemonsBattle[0].getHp()) ? 0 : 1;
         System.out.println("comenzara el jugador " + trainers[comenzar].getName());
         while(pokemonsBattle[0] != null && pokemonsBattle[1] != null) {
             battle(sc, trainers, comenzar);
@@ -45,6 +46,7 @@ public class BattleMenu {
             ataque = sc.nextInt();
         }while(ataque <0 || ataque > pokemonsBattle[comenzar].getMoves().size());
 
+        //mirar si dejarlo de esta forma o llamar al metodo
         int oponente = 1 - comenzar;
         short damage = pokemonsBattle[comenzar].getMoves().get(ataque).getPower();
         short nuevoHp = (short)(pokemonsBattle[comenzar].getHp()- damage);
@@ -54,21 +56,25 @@ public class BattleMenu {
 
     public void verificationHp(Scanner sc , Trainer[] trainers) {
         Trainer trainer = new Trainer();
-        if(pokemonsBattle[0].getHp() <= 0 && pokemonsBattle[1] != null) {
-            trainers[0].getPokemonTeam().remove(pokemonsBattle[0]);
-            if(trainers[0].getPokemonTeam().isEmpty()){
-                System.out.println(trainers[1].getName() + " ha ganado la batalla ");
+        if(pokemonsBattle[0].getHp() <= 0 && pokemonsBattle[1] != null || pokemonsBattle[1].getHp() > 0 && pokemonsBattle[0] != null) {
+            int index  =  (pokemonsBattle[0].getHp() <= 0) ? 0 : 1;
+            trainers[index].getPokemonTeam().remove(pokemonsBattle[index]);
+            if(trainers[index].getPokemonTeam().isEmpty()) {
+                win(index, trainers);
             }
-            pokemonsBattle[0] = null;
+            pokemonsBattle[index] = null;
             trainer.choosePokemon(pokemonsBattle, trainers, sc);
 
-        }else if(pokemonsBattle[1].getHp() <= 0 && pokemonsBattle[0] != null) {
-            trainers[1].getPokemonTeam().remove(pokemonsBattle[1]);
-            if(trainers[1].getPokemonTeam().isEmpty()){
-                System.out.println(trainers[0].getName() + " ha ganado la batalla ");
-            }
-            pokemonsBattle[1] = null;
-            trainer.choosePokemon(pokemonsBattle, trainers, sc);
         }
+    }
+
+    public void win(int index, Trainer[] trainers) {
+        System.out.println("Felicitaciones");
+        System.out.println(trainers[1- index].getName() + " ha ganado la batalla ");
+        for(int i = 0; i< trainers[1- index].getPokemonTeam().size(); i++) {
+            System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida :" +  trainers[1- index].getPokemonTeam().get(i).getHp());
+        }
+        System.exit(0);
+
     }
 }
