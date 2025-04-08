@@ -5,7 +5,7 @@ public class Movement {
         FISICO, ESPECIAL
     };
     private String name;
-    private Type type;
+    public Type type;
     private byte power;
 
     public Movement(){}
