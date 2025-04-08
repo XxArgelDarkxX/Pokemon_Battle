@@ -2,7 +2,6 @@ package Menu;
 
 import Entrenador.Trainer;
 import Pokemon.Pokemon;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,8 +16,8 @@ public class BattleMenu {
 
     public void battleBegins(Scanner sc, Trainer[] trainers) {
 
-        for(int i = 0; i < trainers.length; i++) {
-            trainers[i].choosePokemon(pokemonsBattle, trainers, sc);
+        for (Trainer trainer : trainers) {
+            trainer.choosePokemon(pokemonsBattle, trainers, sc);
         }
         System.out.println("\n\n______VAMOS A COMENZAR LA BATALLA______\n");
         Random random = new Random();
@@ -46,10 +45,7 @@ public class BattleMenu {
         }while(ataque <0 || ataque > pokemonsBattle[comenzar].getMoves().size());
 
         int oponente = 1 - comenzar;
-        short damage = pokemonsBattle[comenzar].getMoves().get(ataque).getPower();
-        short nuevoHp = (short)(pokemonsBattle[comenzar].getHp()- damage);
-        pokemonsBattle[oponente].setHp(nuevoHp);
-        System.out.println(pokemonsBattle[comenzar].getName() + " atacó con " + pokemonsBattle[comenzar].getMoves().get(ataque).getName() + " (" + damage + " de daño)");
+        pokemonsBattle[comenzar].movement(pokemonsBattle[oponente], ataque);
     }
 
     public void verificationHp(Scanner sc , Trainer[] trainers) {

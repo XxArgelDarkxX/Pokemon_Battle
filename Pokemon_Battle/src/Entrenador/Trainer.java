@@ -1,6 +1,5 @@
 package Entrenador;
 
-import Menu.BattleMenu;
 import Pokemon.Pokemon;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,13 +43,9 @@ public class Trainer {
         }
     }
 
-
-
-
     public void choosePokemon(Pokemon[] pokemonsBattle, Trainer[] trainers, Scanner scanner) {
         if(pokemonsBattle[0] == null && pokemonsBattle[1] == null) {
             for(int i = 0; i < trainers.length; i++) {
-                int contador = 1;
                 Trainer trainer = trainers[i];
                 System.out.println(trainer.getName() + " elija tu pokemon inicial: ");
                 for(int j = 0 ; j < trainer.pokemonTeam.size(); j++){
