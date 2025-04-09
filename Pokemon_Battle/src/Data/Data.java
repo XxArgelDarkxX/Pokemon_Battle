@@ -1,18 +1,19 @@
 package Data;
 
-import java.util.ArrayList;
 import Movement.Movement;
 import Pokemon.Pokemon;
+import java.util.ArrayList;
 
 public class Data {
-    private static ArrayList<Movement> fireMoves = new ArrayList<>();
-    private static ArrayList<Movement> waterMoves = new ArrayList<>();
-    private static ArrayList<Movement> grassMoves = new ArrayList<>();
-    private static ArrayList<Movement> groundMoves = new ArrayList<>();
-    private static ArrayList<Pokemon> pokemons = new ArrayList<>();
+    private static final ArrayList<Movement> fireMoves = new ArrayList<>();
+    private static final ArrayList<Movement> waterMoves = new ArrayList<>();
+    private static final ArrayList<Movement> grassMoves = new ArrayList<>();
+    private static final ArrayList<Movement> groundMoves = new ArrayList<>();
+    private static final ArrayList<Pokemon> pokemons = new ArrayList<>();
 
     public static void initializeMoves() {
         // Movimientos tipo Fuego
+        fireMoves.clear();
         fireMoves.add(new Movement("Lanzallamas", "FISICO", (byte)90));
         fireMoves.add(new Movement("Llamarada", "ESPECIAL", (byte)85));
         fireMoves.add(new Movement("Puño Fuego", "FISICO", (byte)75));
@@ -20,6 +21,7 @@ public class Data {
         fireMoves.add(new Movement("Nitrocarga", "FISICO", (byte)65));
 
         // Movimientos tipo Agua
+        waterMoves.clear();
         waterMoves.add(new Movement("Hidrobomba", "ESPECIAL", (byte)95));
         waterMoves.add(new Movement("Surf", "ESPECIAL", (byte)85));
         waterMoves.add(new Movement("Acua Cola", "FISICO", (byte)80));
@@ -27,6 +29,7 @@ public class Data {
         waterMoves.add(new Movement("Cascada", "FISICO", (byte)75));
 
         // Movimientos tipo Planta
+        grassMoves.clear();
         grassMoves.add(new Movement("Rayo Solar", "ESPECIAL", (byte)95));
         grassMoves.add(new Movement("Hoja Afilada", "FISICO", (byte)85));
         grassMoves.add(new Movement("Latigazo", "FISICO", (byte)80));
@@ -34,6 +37,7 @@ public class Data {
         grassMoves.add(new Movement("Drenadoras", "ESPECIAL", (byte)70));
 
         // Movimientos tipo Tierra
+        groundMoves.clear();
         groundMoves.add(new Movement("Terremoto", "FISICO", (byte)95));
         groundMoves.add(new Movement("Excavar", "FISICO", (byte)85));
         groundMoves.add(new Movement("Tierra Viva", "ESPECIAL", (byte)80));
@@ -76,5 +80,23 @@ public class Data {
     }
     public static ArrayList<Pokemon> getPokemons() {
         return pokemons;
+    }
+    public static ArrayList<Movement> getMoves(Pokemon.Type type) {
+        initializeMoves();
+        switch (type) {
+            case FUEGO -> {
+                return fireMoves;
+            }
+            case AGUA -> {
+                return waterMoves;
+            }
+            case PLANTA -> {
+                return grassMoves;
+            }
+            case TIERRA -> {
+                return groundMoves;
+            }
+            default -> throw new IllegalArgumentException("Tipo de Pokemon Desconocido: " + type);
+        }
     }
 }
