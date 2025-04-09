@@ -40,7 +40,7 @@ public class MovementMenu {
             do { 
                 value = scanner.nextInt();
                 if (value < 0 || value > 350) {
-                    System.out.println("El valor debe estar entre 0 y 100");
+                    System.out.println("El valor debe estar entre 0 y 350");
                     flag = true;
                 }else{
                     movements[i].setPower((byte)value);

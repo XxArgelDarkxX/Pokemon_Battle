@@ -22,7 +22,7 @@ public class PokemonMenu {
             pokemons[i].setName(namePokemon);
             //Ingresar el tipo
             System.out.println("\nINGRESE EL ELEMENTO DEL POKEMON ");
-            System.out.println("1. FUEGO\n 2. AGUA\n 3. PLANTA\n 4. TIERRA\n"); //Mostramos las opciones
+            System.out.println(" 1. FUEGO\n 2. AGUA\n 3. PLANTA\n 4. TIERRA\n"); //Mostramos las opciones
             
             //legimos el tipo de pokemon
             do{
@@ -53,7 +53,7 @@ public class PokemonMenu {
                         flag = false;
                     }
                 }catch(Exception e){
-                    System.out.println("engrese un valor menor o igaul a 350 de vida pendejo");
+                    System.out.println("ingrese un valor menor o igual a 350 de vida pendejo");
                     flag = true;
                     scanner.next();
 
