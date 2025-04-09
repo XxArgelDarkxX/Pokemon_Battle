@@ -43,7 +43,7 @@ public class TrainerMenu {
                         trainers[i].setRandomPokemonTeam(pokemons);
                         System.out.println("ENTRENADOR : " + trainers[i].getName() + ", TUS POKEMONES SON: ");
                         for (int j = 0; j < 3; j++) {
-                            System.out.println("\t" + "POKEMON: " + trainers[i].getPokemonTeam().get(j).getName() + ", ELEMENTO: " + trainers[i].getPokemonTeam().get(i).getType()
+                            System.out.println("\t" + "POKEMON: " + trainers[i].getPokemonTeam().get(j).getName() + ", ELEMENTO: " + trainers[i].getPokemonTeam().get(j).getType()
                                     + ", HP: " + trainers[i].getPokemonTeam().get(j).getHp());
                         }
                         System.out.println("\n");
