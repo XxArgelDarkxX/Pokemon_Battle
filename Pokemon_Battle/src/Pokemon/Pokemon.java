@@ -75,7 +75,13 @@ Pokemon {
         Movement move = (Movement) moves.get(moveIndex);
         double effectiveness = moveEffectiveness(this.type, target.getType());
         target.setHp((short) (target.getHp() - (move.getPower() * effectiveness))); // Se resta la vida del Pokemon objetivo.
-        System.out.println(this.name + " ha usado" + move.getName() + "!");
+        System.out.println(this.name + " ha usado " + move.getName() + "!");
+        if (target.getHp() <= 0) {
+            System.out.println(target.getName() + " ha sido derrotado!");
+        } else {
+            System.out.println(target.getName() + " tiene " + target.getHp() + " de vida.");
+        }
+        
     }
 
     // Este método calcula la efectividad de un movimiento de un tipo de Pokemon sobre otro tipo de Pokemon.

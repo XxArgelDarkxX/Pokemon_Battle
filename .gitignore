@@ -26,3 +26,7 @@ replay_pid*
 # Text Editor Temp Files
 .vscode/
 .idea/
+
+# IntelliJ IDEA files
+*.iml
+*.ipr
