@@ -98,6 +98,5 @@ public class BattleMenu {
             }
         }
         System.exit(0);
-
     }
 }

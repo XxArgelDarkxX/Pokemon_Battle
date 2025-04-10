@@ -23,7 +23,7 @@ public class TrainerMenu {
         }
         //elejir si como quiere elejir el equipo pokemon
         for(int i=0; i<numTrainers; i++){
-            int option;
+            int option = 0;
             do {
                 System.out.println("""
 
@@ -52,14 +52,16 @@ public class TrainerMenu {
                         //Creacion Manual
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
                         PokemonMenu.pokemonMenu(scanner, trainers[i]);
-                    } else {
+                    }
+                    default -> {
                         System.out.println("Opción inválida. Intenta de nuevo.");
                     }
+                }
                 } else {
                     System.out.println("Debes ingresar un número.");
                     scanner.nextLine(); // limpiar entrada inválida
                 }
-            }
+            } while (option != 1 && option != 2);
         }
 
         // depues de que cada entrenador tenga sus pokemones vamos a comezar la batalla
