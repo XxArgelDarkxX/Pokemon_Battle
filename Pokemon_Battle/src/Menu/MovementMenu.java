@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MovementMenu {
-
     public static ArrayList<Movement> movementMenu(Scanner scanner) {
         int numMovements = 4;
         ArrayList<Movement> movements = new ArrayList<>();
@@ -71,7 +70,6 @@ public class MovementMenu {
             movements.add(movement);
             System.out.println("Movimiento registrado: " + movement.getName() + "\n");
         }
-
         return movements;
     }
 }

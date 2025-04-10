@@ -67,7 +67,6 @@ public class Trainer {
             int index = (pokemonsBattle[0] == null) ? 0 : 1;
             int option;
             Trainer trainer = trainers[index];
-            
             System.out.println("Cambiar Pokémon: ");
             for (int i = 0; i < pokemonTeam.size(); i++) {
                 System.out.println("\t" + (i + 1) + ". " + trainer.pokemonTeam.get(i).getName() + " (HP: " + trainer.pokemonTeam.get(i).getHp() + ")");
@@ -87,7 +86,6 @@ public class Trainer {
                     scanner.next(); // limpiar entrada inválida
                 }
             } while (true);
-        
             pokemonsBattle[index] = pokemonTeam.get(option - 1);
         }
         

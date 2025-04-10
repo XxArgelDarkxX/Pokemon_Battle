@@ -18,7 +18,6 @@ public class TrainerMenu {
             String name = scanner.nextLine();
             trainers[i].setName(name);
         }
-
         for (int i = 0; i < numTrainers; i++) {
             int option = 0;
 

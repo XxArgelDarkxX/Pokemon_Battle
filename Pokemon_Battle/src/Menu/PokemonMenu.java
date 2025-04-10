@@ -6,7 +6,6 @@ import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
-
     public static void pokemonMenu(Scanner scanner, Trainer trainers) throws Exception {
 
         int numPokemons = 3;
@@ -23,7 +22,7 @@ public class PokemonMenu {
             String namePokemon = scanner.next();
             pokemons[i].setName(namePokemon);
 
-            // Tipo
+            // Se pide el tipo del pokemon
             System.out.println("\nINGRESA EL ELEMENTO DEL POKEMON");
             System.out.println(" 1. FUEGO\n 2. AGUA\n 3. PLANTA\n 4. TIERRA");
             do {
@@ -47,7 +46,7 @@ public class PokemonMenu {
                 }
             } while (flag);
 
-            // Vida
+            // Se elije la cantidad de puntos de vida del pokemon
             do {
                 flag = false;
                 try {
