@@ -4,7 +4,6 @@ import Entrenador.Trainer;
 import Pokemon.Pokemon;
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class TrainerMenu {
     public static final String ANSI_RED = "\u001B[31m";
@@ -22,7 +21,6 @@ public class TrainerMenu {
             String name = scanner.nextLine();
             trainers[i].setName(name);
         }
-
         //elejir si como quiere elejir el equipo pokemon
         for(int i=0; i<numTrainers; i++){
             int option;
@@ -33,30 +31,33 @@ public class TrainerMenu {
                                    1. EQUIPO ALEATORIO
                                    2. CREAR TU PROPIO EQUIPO 
                                    """);
-                System.out.print("ELIGE UNA OPCION " + trainers[i].getName() + ": " );
-                option = scanner.nextInt();
-                scanner.nextLine();
+                System.out.print("ELIGE UNA OPCION " + trainers[i].getName() + ": ");
 
+                if (scanner.hasNextInt()) {
+                    option = scanner.nextInt();
+                    scanner.nextLine(); // Limpiar el salto de línea
                 //el switch para mirar ver que tipo de pokemon
                 switch (option) {
                     case 1 -> { //pokemones random
                         trainers[i].setRandomPokemonTeam(pokemons);
                         System.out.println("ENTRENADOR : " + trainers[i].getName() + ", TUS POKEMONES SON: ");
                         for (int j = 0; j < 3; j++) {
-                            System.out.println("\t" + "POKEMON: " + trainers[i].getPokemonTeam().get(j).getName() + ", ELEMENTO: " + trainers[i].getPokemonTeam().get(j).getType()
-                                    + ", HP: " + trainers[i].getPokemonTeam().get(j).getHp());
+                            Pokemon pokemon = trainers[i].getPokemonTeam().get(j);
+                            System.out.println("\tPOKEMON: " + pokemon.getName() + ", ELEMENTO: " + pokemon.getType() + ", HP: " + pokemon.getHp());
                         }
                         System.out.println("\n");
                     }
                     case 2 -> { //tiene que crear los pokemones
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
                         PokemonMenu.pokemonMenu(scanner, trainers[i]);
+                    } else {
+                        System.out.println("Opción inválida. Intenta de nuevo.");
                     }
-                    default -> JOptionPane.showMessageDialog(null, "Opcion no valida", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    System.out.println("Debes ingresar un número.");
+                    scanner.nextLine(); // limpiar entrada inválida
                 }
-            } while (option != 1 && option != 2);
-
-
+            }
         }
 
         // depues de que cada entrenador tenga sus pokemones vamos a comezar la batalla

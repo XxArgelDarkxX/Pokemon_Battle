@@ -68,13 +68,27 @@ public class Trainer {
             int index = (pokemonsBattle[0] == null) ? 0 : 1;
             int option;
             Trainer trainer = trainers[index];
-            System.out.println("Cambiar Pokemon: ");
+            System.out.println("Cambiar Pokémon: ");
             for (int i = 0; i < pokemonTeam.size(); i++) {
-                System.out.println("\t" + (i+1)+ " " + trainer.pokemonTeam.get(i).getName() + " " + trainer.pokemonTeam.get(i).getHp());
+                System.out.println("\t" + (i + 1) + ". " + trainer.pokemonTeam.get(i).getName() + " (HP: " + trainer.pokemonTeam.get(i).getHp() + ")");
             }
-            System.out.println(trainer.getName() + " elija un pokemon ");
-            option = scanner.nextInt();
+        
+            do {
+                System.out.println(trainer.getName() + ", elige un Pokémon (1 - " + pokemonTeam.size() + "):");
+                try {
+                    option = scanner.nextInt();
+                    if (option < 1 || option > pokemonTeam.size()) {
+                        System.out.println("Opción fuera de rango. Intenta nuevamente.");
+                    } else {
+                        break; // opción válida
+                    }
+                } catch (Exception e) {
+                    System.out.println("Entrada inválida. Ingresa un número.");
+                    scanner.next(); // limpiar entrada inválida
+                }
+            } while (true);
             pokemonsBattle[index] = pokemonTeam.get(option - 1);
         }
+        
     }
 }
