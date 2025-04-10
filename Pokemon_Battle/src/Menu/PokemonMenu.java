@@ -47,14 +47,14 @@ public class PokemonMenu {
                     System.out.println("\nINGRESA LA VIDA DEL POKEMON\n");
                     System.out.print("POKEMON " + (i + 1) + ":\t");
                     hp = scanner.nextShort();
-                    if(hp>350){
+                    if(hp<=0 || hp>350){
                         flag = true;
                     }else{
                         pokemons[i].setHp(hp);
                         flag = false;
                     }
                 }catch(Exception e){
-                    System.out.println("ingrese un valor menor o igual a 350 de vida pendejo");
+                    System.out.println("ingrese un valor entre 1 y 350 de vida");
                     flag = true;
                     scanner.next();
 
@@ -71,7 +71,7 @@ public class PokemonMenu {
                 option = scanner.nextInt();
                 switch (option) {
                     case 1 -> pokemons[i].setRandomMoves(Data.getMoves(pokemons[i].getType()));
-                    case 2 -> MovementMenu.movementMenu(scanner);
+                    case 2 -> pokemons[i].setMoves(MovementMenu.movementMenu(scanner));
                     default -> {System.out.println("Opcion no valida");
                         flag = true;}
                 }
