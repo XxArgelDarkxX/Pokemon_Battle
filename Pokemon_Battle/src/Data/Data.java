@@ -11,6 +11,7 @@ public class Data {
     private static final ArrayList<Movement> groundMoves = new ArrayList<>();
     private static final ArrayList<Pokemon> pokemons = new ArrayList<>();
 
+    //data de los movimientos
     public static void initializeMoves() {
         // Movimientos tipo Fuego
         fireMoves.clear();
@@ -45,6 +46,7 @@ public class Data {
         groundMoves.add(new Movement("Avalancha", "FISICO", (byte)70));
     }
 
+    //
     public static void initializePokemons() {
         // Pokémon tipo Fuego
         ArrayList<Movement> charmanderMoves = new ArrayList<>(fireMoves.subList(0, 4));
