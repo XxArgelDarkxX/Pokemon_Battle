@@ -32,7 +32,7 @@ public class BattleMenu {
     }
 
     public void battle(Scanner sc, Trainer[] trainers, int comenzar) {
-        System.out.println("entrenador "+trainers[comenzar].getName() +" es tu turno con el pokemon " + pokemonsBattle[comenzar].getName()  );
+        System.out.println("\nEntrenador "+trainers[comenzar].getName() +" es tu turno con el pokemon " + pokemonsBattle[comenzar].getName()  );
         for(int i = 0; i< pokemonsBattle[comenzar].getMoves().size(); i++){
             System.out.println("\t" + (i +1)  + " " +  pokemonsBattle[comenzar].getMoves().get(i).getName() + " " + pokemonsBattle[comenzar].getMoves().get(i).getPower() );
         }
