@@ -70,7 +70,12 @@ public class BattleMenu {
         System.out.println(trainers[1- index].getName() + " ha ganado la batalla ");
         for(int i = 0; i< trainers[1- index].getPokemonTeam().size(); i++) {
             // Se imprime el pokemon que queda en pie y su vida.
-            System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
+            if (pokemonsBattle[1- index] == trainers[1- index].getPokemonTeam().get(i)) {
+                System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
+            }
+            else{
+                System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  trainers[1- index].getPokemonTeam().get(i).getHp());
+            }
         }
         System.exit(0);
 
