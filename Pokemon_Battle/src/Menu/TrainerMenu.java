@@ -45,7 +45,7 @@ public class TrainerMenu {
                     }
                     case 2 -> {
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
-                        PokemonMenu.pokemonMenu(scanner);
+                        PokemonMenu.pokemonMenu(scanner, trainers[i]);
                     }
                     default -> JOptionPane.showMessageDialog(null, "Opcion no valida", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
