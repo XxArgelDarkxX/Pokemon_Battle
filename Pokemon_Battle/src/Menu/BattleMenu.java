@@ -8,11 +8,6 @@ import java.util.Scanner;
 
 public class BattleMenu {
     Pokemon[] pokemonsBattle = new Pokemon[2];
-    public static void battleMenu() throws Exception {
-
-
-    }
-
     public void battleBegins(Scanner sc, Trainer[] trainers) {
 
         for (Trainer trainer : trainers) {
@@ -31,7 +26,9 @@ public class BattleMenu {
         }
     }
 
+    // Maneja la batalla entre los dos entrenadores.
     public void battle(Scanner sc, Trainer[] trainers, int comenzar) {
+        // Se elige el ataque y se ejecuta el movimiento.
         System.out.println("\nEntrenador "+trainers[comenzar].getName() +" es tu turno con el pokemon " + pokemonsBattle[comenzar].getName()  );
         for(int i = 0; i< pokemonsBattle[comenzar].getMoves().size(); i++){
             System.out.println("\t" + (i +1)  + " " +  pokemonsBattle[comenzar].getMoves().get(i).getName() + " " + pokemonsBattle[comenzar].getMoves().get(i).getPower() );
@@ -67,10 +64,12 @@ public class BattleMenu {
         }
     }
 
+    // Se define el ganador de la batalla.
     public void win(int index, Trainer[] trainers) {
         System.out.println("Felicitaciones");
         System.out.println(trainers[1- index].getName() + " ha ganado la batalla ");
         for(int i = 0; i< trainers[1- index].getPokemonTeam().size(); i++) {
+            // Se imprime el pokemon que queda en pie y su vida.
             System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
         }
         System.exit(0);

@@ -33,20 +33,20 @@ public class TrainerMenu {
                 if (scanner.hasNextInt()) {
                     option = scanner.nextInt();
                     scanner.nextLine(); // Limpiar el salto de línea
-
-                    if (option == 1) {
-                        trainers[i].setRandomPokemonTeam(pokemons);
-                        System.out.println("ENTRENADOR : " + trainers[i].getName() + ", TUS POKEMONES SON: ");
-                        for (int j = 0; j < 3; j++) {
-                            Pokemon pokemon = trainers[i].getPokemonTeam().get(j);
-                            System.out.println("\tPOKEMON: " + pokemon.getName() + ", ELEMENTO: " + pokemon.getType() + ", HP: " + pokemon.getHp());
+                    switch (option) {
+                        case 1 -> {
+                            trainers[i].setRandomPokemonTeam(pokemons);
+                            System.out.println("ENTRENADOR : " + trainers[i].getName() + ", TUS POKEMONES SON: ");
+                            for (int j = 0; j < 3; j++) {
+                                Pokemon pokemon = trainers[i].getPokemonTeam().get(j);
+                                System.out.println("\tPOKEMON: " + pokemon.getName() + ", ELEMENTO: " + pokemon.getType() + ", HP: " + pokemon.getHp());
+                            }   System.out.println();
                         }
-                        System.out.println();
-                    } else if (option == 2) {
-                        System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
-                        PokemonMenu.pokemonMenu(scanner, trainers[i]);
-                    } else {
-                        System.out.println("Opción inválida. Intenta de nuevo.");
+                        case 2 -> {
+                            System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
+                            PokemonMenu.pokemonMenu(scanner, trainers[i]);
+                        }
+                        default -> System.out.println("Opción inválida. Intenta de nuevo.");
                     }
                 } else {
                     System.out.println("Debes ingresar un número.");

@@ -43,7 +43,9 @@ public class Trainer {
         }
     }
 
+    // Metodo para elegir pokemons para la batalla. (no se puede cambiar en medio de esta)
     public void choosePokemon(Pokemon[] pokemonsBattle, Trainer[] trainers, Scanner scanner) {
+        // Primer pokemon para la batalla
         if(pokemonsBattle[0] == null && pokemonsBattle[1] == null) {
             for(int i = 0; i < trainers.length; i++) {
                 Trainer trainer = trainers[i];
@@ -63,6 +65,7 @@ public class Trainer {
                 scanner.nextLine();
                 pokemonsBattle[i] = trainer.pokemonTeam.get(opcion -1 );
             }
+        // Si el pokemon ya fue derrotado, se da la posibilidad de elegir otro de los restantes.
         }else if (pokemonsBattle[1] == null || pokemonsBattle[0] == null) {
             int index = (pokemonsBattle[0] == null) ? 0 : 1;
             int option;
