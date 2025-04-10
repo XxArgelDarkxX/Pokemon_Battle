@@ -5,6 +5,7 @@ import Movement.Movement.Type;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//esta clase es para crear tus porpios movimientos
 public class MovementMenu {
     public static ArrayList<Movement> movementMenu(Scanner scanner) throws Exception {
         int numMovements = 4;
