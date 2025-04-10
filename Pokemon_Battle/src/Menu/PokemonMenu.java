@@ -1,11 +1,12 @@
 package Menu;
 
 import Data.Data;
+import Entrenador.Trainer;
 import Pokemon.Pokemon;
 import java.util.Scanner;
 
 public class PokemonMenu {
-    public static void pokemonMenu(Scanner scanner) throws Exception {
+    public static void pokemonMenu(Scanner scanner, Trainer trainers) throws Exception {
 
         //definir la cantidad
         int numPokemons = 3;
@@ -75,7 +76,7 @@ public class PokemonMenu {
                         flag = true;}
                 }
             }while(flag);
-            
+            trainers.getPokemonTeam().add(pokemons[i]);
         }
     }
 }

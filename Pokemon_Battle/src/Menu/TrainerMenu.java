@@ -50,7 +50,7 @@ public class TrainerMenu {
                         break;
                     case 2:
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
-                        PokemonMenu.pokemonMenu(scanner);
+                        PokemonMenu.pokemonMenu(scanner, trainers[i]);
 
                         break;
                     default:
