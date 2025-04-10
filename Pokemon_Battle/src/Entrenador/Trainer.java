@@ -43,8 +43,9 @@ public class Trainer {
         }
     }
 
+    //elegir los pokemones iniciales y cuando debe elegir otro pokemon si el pokemon anterior perdio
     public void choosePokemon(Pokemon[] pokemonsBattle, Trainer[] trainers, Scanner scanner) {
-        if(pokemonsBattle[0] == null && pokemonsBattle[1] == null) {
+        if(pokemonsBattle[0] == null && pokemonsBattle[1] == null) { //si los dos pokemones no se han elegido
             for(int i = 0; i < trainers.length; i++) {
                 Trainer trainer = trainers[i];
                 System.out.println("Entrenador: " + trainer.getName() + " elija su pokemon inicial: ");
@@ -63,7 +64,7 @@ public class Trainer {
                 scanner.nextLine();
                 pokemonsBattle[i] = trainer.pokemonTeam.get(opcion -1 );
             }
-        }else if (pokemonsBattle[1] == null || pokemonsBattle[0] == null) {
+        }else if (pokemonsBattle[1] == null || pokemonsBattle[0] == null) { //elegir otro pokemon cuando tu pokemon anterior perdio
             int index = (pokemonsBattle[0] == null) ? 0 : 1;
             int option;
             Trainer trainer = trainers[index];
