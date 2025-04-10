@@ -2,8 +2,6 @@ package Menu;
 
 import Entrenador.Trainer;
 import Pokemon.Pokemon;
-
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -17,9 +15,8 @@ public class BattleMenu {
 
     public void battleBegins(Scanner sc, Trainer[] trainers) {
 
-        //esta preguntado
-        for(int i = 0; i < trainers.length; i++) {
-            trainers[i].choosePokemon(pokemonsBattle, trainers, sc);
+        for (Trainer trainer : trainers) {
+            trainer.choosePokemon(pokemonsBattle, trainers, sc);
         }
         System.out.println("\n\n______VAMOS A COMENZAR LA BATALLA______\n");
 
@@ -47,15 +44,8 @@ public class BattleMenu {
             sc.nextLine();
         }while(ataque < 0 || ataque > pokemonsBattle[comenzar].getMoves().size());
 
-        //mirar si dejarlo de esta forma o llamar al metodo
         int oponente = 1 - comenzar;
-        short damage = pokemonsBattle[comenzar].getMoves().get(ataque -1).getPower();
-        short nuevoHp = (short)(pokemonsBattle[oponente].getHp()- damage);
-        pokemonsBattle[oponente].setHp(nuevoHp);
-        System.out.println(pokemonsBattle[comenzar].getName() + " atacó con " + pokemonsBattle[comenzar].getMoves().get(ataque -1).getName() + " (" + damage + " de daño)");
-        System.out.println(pokemonsBattle[oponente].getName() + " hp : " + pokemonsBattle[oponente].getHp());
-        Trainer traine = new Trainer();
-        System.out.println(traine.getPokemonTeam().size());
+        pokemonsBattle[comenzar].movement(pokemonsBattle[oponente], ataque-1);
     }
 
 
@@ -81,7 +71,7 @@ public class BattleMenu {
         System.out.println("Felicitaciones");
         System.out.println(trainers[1- index].getName() + " ha ganado la batalla ");
         for(int i = 0; i< trainers[1- index].getPokemonTeam().size(); i++) {
-            System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida :" +  trainers[1- index].getPokemonTeam().get(i).getHp());
+            System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
         }
         System.exit(0);
 
