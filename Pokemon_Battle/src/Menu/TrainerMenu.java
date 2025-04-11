@@ -23,7 +23,7 @@ public class TrainerMenu {
         }
         //elejir si como quiere elejir el equipo pokemon
         for(int i=0; i<numTrainers; i++){
-            int option;
+            int option = 0;
             do {
                 System.out.println("""
 
@@ -36,9 +36,10 @@ public class TrainerMenu {
                 if (scanner.hasNextInt()) {
                     option = scanner.nextInt();
                     scanner.nextLine(); // Limpiar el salto de línea
-                //el switch para mirar ver que tipo de pokemon
+                //Se elije entre la creacion aleatorio del equipo y la creacion manual 
                 switch (option) {
-                    case 1 -> { //pokemones random
+                    case 1 -> { 
+                        //Pokemones random
                         trainers[i].setRandomPokemonTeam(pokemons);
                         System.out.println("ENTRENADOR : " + trainers[i].getName() + ", TUS POKEMONES SON: ");
                         for (int j = 0; j < 3; j++) {
@@ -47,17 +48,20 @@ public class TrainerMenu {
                         }
                         System.out.println("\n");
                     }
-                    case 2 -> { //tiene que crear los pokemones
+                    case 2 -> { 
+                        //Creacion Manual
                         System.out.println(trainers[i].getName() + ", INGRESA TUS POKEMONES: ");
                         PokemonMenu.pokemonMenu(scanner, trainers[i]);
-                    } else {
+                    }
+                    default -> {
                         System.out.println("Opción inválida. Intenta de nuevo.");
                     }
+                }
                 } else {
                     System.out.println("Debes ingresar un número.");
                     scanner.nextLine(); // limpiar entrada inválida
                 }
-            }
+            } while (option != 1 && option != 2);
         }
 
         // depues de que cada entrenador tenga sus pokemones vamos a comezar la batalla

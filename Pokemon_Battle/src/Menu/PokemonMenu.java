@@ -16,7 +16,7 @@ public class PokemonMenu {
         for (int i = 0; i < numPokemons; i++) {
             pokemons[i] = new Pokemon();
 
-            // Nombre
+            // Nombre del pokemon
             System.out.println("\nINGRESA EL NOMBRE DEL POKEMON");
             System.out.print("POKEMON " + (i + 1) + ": ");
             String namePokemon = scanner.next();
@@ -66,7 +66,7 @@ public class PokemonMenu {
                 }
             } while (flag);
 
-            // Movimientos
+            // Movimientos del pokemon
             System.out.println("""
                 
                 SELECCIONA LOS MOVIMIENTOS DE TU POKEMON
@@ -79,8 +79,8 @@ public class PokemonMenu {
                     option = scanner.nextInt();
                     scanner.nextLine(); // limpiar el buffer
                     switch (option) {
-                        case 1 -> pokemons[i].setRandomMoves(Data.getMoves(pokemons[i].getType()));
-                        case 2 -> pokemons[i].setMoves(MovementMenu.movementMenu(scanner));
+                        case 1 -> pokemons[i].setRandomMoves(Data.getMoves(pokemons[i].getType())); //Random
+                        case 2 -> pokemons[i].setMoves(MovementMenu.movementMenu(scanner)); // Creacion manual
                         default -> {
                             System.out.println("Opción no válida. Intenta de nuevo.");
                             flag = true;

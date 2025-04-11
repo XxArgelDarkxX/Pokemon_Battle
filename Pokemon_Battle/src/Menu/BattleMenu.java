@@ -13,12 +13,7 @@ public class BattleMenu {
     public static final String ANSI_RESET = "\u001B[0m";
 
     Pokemon[] pokemonsBattle = new Pokemon[2];
-    public static void battleMenu() throws Exception {
-
-
-    }
-
-
+  
     public void battleBegins(Scanner sc, Trainer[] trainers) {
         for (Trainer trainer : trainers) {
             trainer.choosePokemon(pokemonsBattle, trainers, sc);
@@ -43,9 +38,10 @@ public class BattleMenu {
         }
     }
 
+    // Maneja la batalla entre los dos entrenadores.
     public void battle(Scanner sc, Trainer[] trainers, int comenzar) {
-        System.out.println("entrenador "+ ANSI_RED +trainers[comenzar].getName() +ANSI_RESET +" es tu turno con el pokemon " + pokemonsBattle[comenzar].getName()  );
-        //imprimer los ataque de los pokemones
+        // Se elige el ataque y se ejecuta el movimiento.
+        System.out.println("\nEntrenador "+trainers[comenzar].getName() +" es tu turno con el pokemon " + pokemonsBattle[comenzar].getName()  );
         for(int i = 0; i< pokemonsBattle[comenzar].getMoves().size(); i++){
             System.out.println("\t" + (i +1)  + " " +  pokemonsBattle[comenzar].getMoves().get(i).getName() + " " + pokemonsBattle[comenzar].getMoves().get(i).getPower() );
         }
@@ -82,9 +78,7 @@ public class BattleMenu {
             trainers[index].choosePokemon(pokemonsBattle, trainers, sc);
         }
     }
-
-
-    //clase para dar la felicitacion al ganador
+    // Se define el ganador de la batalla.
     public void win(int index, Trainer[] trainers) {
         System.out.println("\n"+ ANSI_RED +
                 " ______  ______  __      __  ______  __  ______  ______  ______  __  ______  __   __  ______  ______    \n" +
@@ -95,9 +89,14 @@ public class BattleMenu {
                 "                                                                                                        \n"+ ANSI_RESET);
         System.out.println(trainers[1- index].getName() + " ha ganado la batalla ");
         for(int i = 0; i< trainers[1- index].getPokemonTeam().size(); i++) {
-            System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
+            // Se imprime el pokemon que queda en pie y su vida.
+            if (pokemonsBattle[1- index] == trainers[1- index].getPokemonTeam().get(i)) {
+                System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  pokemonsBattle[1- index].getHp());
+            }
+            else{
+                System.out.println("pokemon: " + trainers[1- index].getPokemonTeam().get(i).getName() + ", vida : " +  trainers[1- index].getPokemonTeam().get(i).getHp());
+            }
         }
         System.exit(0);
-
     }
 }

@@ -32,15 +32,16 @@ public class MovementMenu {
                         """);
                     int option = scanner.nextInt();
                     scanner.nextLine(); // limpiar el buffer
-
-                    if (option == 1) {
-                        movement.setType(Type.FISICO);
-                        validType = true;
-                    } else if (option == 2) {
-                        movement.setType(Type.ESPECIAL);
-                        validType = true;
-                    } else {
-                        System.out.println("Opción no válida. Intenta de nuevo.");
+                    switch (option) {
+                        case 1 -> {
+                            movement.setType(Type.FISICO);
+                            validType = true;
+                        }
+                        case 2 -> {
+                            movement.setType(Type.ESPECIAL);
+                            validType = true;
+                        }
+                        default -> System.out.println("Opción no válida. Intenta de nuevo.");
                     }
                 } catch (Exception e) {
                     System.out.println("Entrada inválida. Debes ingresar un número.");
