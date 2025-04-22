@@ -1,4 +1,4 @@
-# Mini Proyecto #2 / Batalla Pokemon
+# Mini Proyecto #1 / Batalla Pokemon
 # Integrantes
 Angel Nicolas Castañeda Valencia - 202459426
 <br>
